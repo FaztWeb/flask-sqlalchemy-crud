@@ -1,0 +1,9 @@
+<h1>Edit Task</h1>
+
+<form action="{{url_for('update', id=contact.id)}}" method="POST">
+  <input type="text" name="fullname" value="{{contact.fullname}}" />
+  <input type="email" name="email" value="{{contact.email}}" />
+  <input type="tel" name="phone" value="{{contact.phone}}" />
+
+  <button>Update</button>
+</form>
