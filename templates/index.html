@@ -6,55 +6,15 @@
 
 {% block body %}
 
-      <div class="row">
-          <div class="col-md-4 offset-md-4">
-          {% with messages = get_flashed_messages() %}
-            {% if messages %}
-              {% for message in messages %}
-                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                  {{message}}
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-              {% endfor %}
-          {% endif %}
-          {% endwith %}
-          </div>
-      </div>
     <!-- FORM -->
     <div class="row">
 
     <div class="col-md-5 p-5">
       <!-- MESSAGE -->
+      {% include 'partials/_message.html' %}
 
       <!-- FORM -->
-      <form action="/new" method="POST" class="card bg-black">
-        <div class="card-body p-4">
-          <h1 class="h5 mb-4">Add Contact</h1>
-          <input 
-            type="text"
-            name="fullname"
-            class="form-control rounded-0 bg-dark border-0 text-white mb-3"
-            placeholder="Write fullname"
-            autofocus
-          />
-          <input
-            type="text"
-            name="email"
-            class="form-control rounded-0 bg-dark border-0 text-white mb-3"
-            placeholder="Write your email"
-            required
-          />
-
-          <input
-            type="text"
-            name="phone"
-            class="form-control rounded-0 bg-dark border-0 text-white mb-3"
-            placeholder="+12123123123"
-            />
-
-          <button class="btn btn-primary">Save</button>
-        </div>
-      </form>
+      {%  include 'partials/_taskForm.html' %}
     </div>
 
     <!-- contacts list -->
@@ -65,8 +25,8 @@
             <div class="d-flex justify-content-between">
               <h5 class="card-title h6">{{ contact.fullname}}</h5>
               <div>
-                <a href="{{ url_for('update', id=contact.id) }}" class="btn btn-dark btn-sm rounded-0">Edit</a>
-                <a href="{{ url_for('delete', id=contact.id) }}" class="btn btn-danger btn-sm rounded-0">Delete</a>
+                <a href="{{ url_for('contacts.update', id=contact.id) }}" class="btn btn-dark btn-sm rounded-0">Edit</a>
+                <a href="{{ url_for('contacts.delete', id=contact.id) }}" class="btn btn-danger btn-sm rounded-0">Delete</a>
               </div>
             </div>
             <p class="card-text">{{ contact.email }}</p>

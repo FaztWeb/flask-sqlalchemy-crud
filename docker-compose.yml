@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  flask_app:
+    container_name: "web"
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/code
+    links:
+      - flask_db
+  flask_db:
+    container_name: "database"
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: contactsdb
+    ports:
+      - "3306:3306"

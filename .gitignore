@@ -2,3 +2,5 @@ venv
 __pycache__
 
 static/css/bootstrap.min.css
+
+.env

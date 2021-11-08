@@ -1,9 +1,41 @@
-<h1>Edit Task</h1>
+{% extends "layout.html" %} {% block body %}
 
-<form action="{{url_for('update', id=contact.id)}}" method="POST">
-  <input type="text" name="fullname" value="{{contact.fullname}}" />
-  <input type="email" name="email" value="{{contact.email}}" />
-  <input type="tel" name="phone" value="{{contact.phone}}" />
+<div class="col-md-4 offset-md-4">
+  <div class="card card-body bg-dark text-white">
+    <h1>Edit Task</h1>
 
-  <button>Update</button>
-</form>
+    <form action="{{url_for('contacts.update', id=contact.id)}}" method="POST">
+      <div class="mb-3">
+        <label for="fullname">Write your fullname:</label>
+        <input
+          type="text"
+          name="fullname"
+          value="{{contact.fullname}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="email">Write your email:</label>
+        <input
+          type="email"
+          name="email"
+          value="{{contact.email}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="phone">Write your phone:</label>
+        <input
+          type="tel"
+          name="phone"
+          value="{{contact.phone}}"
+          class="form-control bg-dark text-white rounded-0"
+        />
+      </div>
+
+      <button class="btn btn-primary">Update</button>
+    </form>
+  </div>
+</div>
+
+{% endblock %}

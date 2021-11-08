@@ -1,0 +1,14 @@
+autopep8==1.6.0
+click==8.0.3
+Flask==2.0.2
+Flask-SQLAlchemy==2.5.1
+greenlet==1.1.2
+itsdangerous==2.0.1
+Jinja2==3.0.2
+MarkupSafe==2.0.1
+mysqlclient==2.0.3
+pycodestyle==2.8.0
+python-dotenv==0.19.1
+SQLAlchemy==1.4.26
+toml==0.10.2
+Werkzeug==2.0.2
